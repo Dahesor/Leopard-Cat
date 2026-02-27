@@ -1,4 +1,7 @@
 # Leopard Cat Forceload Lib
+
+[中文](./docs/zh_cn.md)
+
 A minecraft data pack library that manages forceloads
 
 For Minecraft Java 1.21.5+
@@ -27,7 +30,7 @@ To create a ticket, first write parameters into storage `dlm:` under key `ticket
  -    `time`: *int*,    For `type:wait` only. Spcecifies the number of ticks to wait before auto-removal.\
 }
 
-Then, execute `function dlm:new_ticket` to create the ticket. Additionally, `dlm:macro_ticket` can be used by inserting the above structure inside the `ticket` macro parameter; `dlm:temp_ticket_here` can be used by only providing `on_load` and a temp ticket at the context position will be created.
+Then, execute `function dlm:new_ticket` to create the ticket. Additionally, `dlm:macro_ticket` can be used by inserting the above structure inside the `ticket` macro parameter; `dlm:temp_ticket_here` can be used by only providing `on_load` and a anonymous temp ticket at the context position will be created.
 
 To close a ticket, use `function dlm:close_ticket {id:"<id>"}`
 
@@ -46,3 +49,25 @@ Callable only during on_load. If the ticket is of `life:{type:"temp"}`, persever
 - **`function dlm:api/gc`**
 
 Run garbage collection manually. Unload chunks that do not have a ticket. This will run automatically as long as you operate with the public interfaces.
+
+## Dependency
+
+A Leopard_Cat_Dependency folder is included in the repository. This can be used as spyglass dependency file for the spyglass data pack helper extension to procide hints about Leopard Cat's public interfaces.
+
+Put this folder (or zip it) anywhere on your computer, then by creating a `spyglass.json` file at the root of your workspace, the Spyglass extension will provides you the completion and error checking of all the functions and storages you need to write to use this library.
+
+Example content of the `spyglass.json` file. See [Spyglass Documentation](https://spyglassmc.com/user/config.html) for more.
+```json
+{
+	"env": {
+		"dependencies": [
+			"file:///C:/path/to/Leopard_Cat_Dependency",
+			"@vanilla-mcdoc",
+			"@vanilla-resourcepack",
+			"@vanilla-mcdoc"
+		],
+		"gameVersion": "1.21.11"
+	}
+}
+```
+Remeber to Reload Vscode. If something about this somehow goes wrong, make Vs Code run the `Spyglass: Reset Project Cahce` command. 

@@ -1,5 +1,65 @@
 dispatch minecraft:storage["dlm:"] to struct{
     ticket?: NewRequest,
+    n_t?: NormalizedRequest,
+    proc?: struct{
+        i?: int,
+    },
+    data?: [DimensionData],
+    This_Dimension?: DimensionData,
+    This_Chunk?: ChunkData,
+    validations?: [Validation],
+    This_Validation?: Validation,
+    cmd?: struct{
+        this?: Command,
+        "any"?: (Command | [Command]),
+        exe?: [Command]
+    },
+    pos?: Position,
+    result_pos?: NormalizedPosition,
+    live_tickets?: [LiveTicket],
+    timed_tickets?: [LiveTicket],
+    tt?: [LiveTicket],
+    this_ticket?: LiveTicket,
+    vld?: struct{
+        life_types?: [LifeTypes] @ 3,
+        i?: int,
+        fload?: struct{...NormalizedPosition, dx?: int, dz?: int},
+        cc?: struct{cx?: int, cz?: int}
+    },
+    gc?: [ChunkData],
+    namespace?: string,
+    "string"?: string,
+    char?: string,
+}
+
+struct Validation{
+    from_ticket?: string,
+    temp?: boolean,
+    on_pass?: [Command],
+    tests?: [Command]
+}
+
+struct DimensionData {
+    dimension?: Dimension,
+    Chunks?: [ChunkData]
+}
+
+struct ChunkData{
+    cx?: int,
+    cz?: int,
+    tickets?: [TicketFlag],
+    alive?: boolean
+}
+
+struct LiveTicket{
+    id?: string,
+    life?: Life,
+    until?: int
+}
+
+struct TicketFlag{
+    id?: string,
+    valid?: boolean,
 }
 
 struct NewRequest{
@@ -27,6 +87,15 @@ struct Life {
     type?: LifeTypes,
     /// for `type:wait` only. Spcecifies the number of ticks to wait before auto-removal.
     time?: CoordAllow
+}
+
+struct NormalizedRequest{
+    id?: string,
+    life?: Life,
+    dimension?: Dimension,
+    pos?: NormalizedPosition,
+    to?: NormalizedPosition,
+    on_load?: [Command],
 }
 
 enum(string) LifeTypes{
