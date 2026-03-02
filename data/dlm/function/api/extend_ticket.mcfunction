@@ -1,4 +1,4 @@
-#> function dlm:api/extende_ticket {time:<time>,id:"<id>"}
+#> function dlm:api/extend_ticket {time:<time>,id:"<id>"}
 # Extend a life:{type:"wait"} ticket by the macro input
 # -- input: macro: {time:<time>,id:"<id>"}
 # --- <time>: the new time this ticket should last, in ticks, counted from the moment this function is called
