@@ -23,7 +23,7 @@ To create a ticket, first write parameters into storage `dlm:` under key `ticket
 `id`: *string*,   An unique identifier. Do not use special characters. If not included, an anonymous ticket will be created. Do not create indefinite anonymous ticks or that chunk would leak and never unload.\
 `pos`: *Position*,   Specify any block pos in the target chunk. Can be either an object `{x:<x>,z:<z>}`, or a list of length 2 `[x, z]` or length 3 `[x, y, z]` (y will be ignored). If `pos` is omitted then the execution context will be used.\
 `to`: *Position*,  Same as `pos`. If present, select the rectangular area formed to load multiple chunks.\
-`dimension`: *#[id="dimension"] string,*   Dimension of this ticket. If omitted and the command context is in the 3 vanilla dimensions then it will be deduced automatically.\
+`dimension`: *#[id="dimension"] string,*   Dimension of this ticket. If omitted then the execution context will be used.\
 `on_load`: *(#[command] string | [#[command] string])*,   A string of command or a list of commands. Executed by the server right after the chunks are all fully loaded\
 `life`: *struct* {   Specify how long this ticket should last.
  -    `type`: *(`"indefinite"`|`"temp"`|`"wait"`)*,    `indefinite`: Never close ticket unless instructed to do so; `temp`: Close this ticket immediately after `on_load` commands; `wait`: Close this ticket after `time` amount of ticks
