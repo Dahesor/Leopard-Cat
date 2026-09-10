@@ -61,7 +61,7 @@ Minecraft的`forceload`命令是异步的，这意味着在执行`forceload`后�
 			"@vanilla-resourcepack",
 			"@vanilla-mcdoc"
 		],
-		"gameVersion": "1.21.11"
+		"gameVersion": "26.3"
 	}
 }
 ```

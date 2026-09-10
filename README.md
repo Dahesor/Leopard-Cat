@@ -66,8 +66,8 @@ Example content of the `spyglass.json` file. See [Spyglass Documentation](https:
 			"@vanilla-resourcepack",
 			"@vanilla-mcdoc"
 		],
-		"gameVersion": "1.21.11"
+		"gameVersion": "26.3"
 	}
 }
 ```
-Remeber to Reload Vscode. If something about this somehow goes wrong, make Vs Code run the `Spyglass: Reset Project Cahce` command. 
+Remeber to Reload Vscode. If something about this somehow goes wrong, make Vs Code run the `Spyglass: Reset Project Cahce` command.
