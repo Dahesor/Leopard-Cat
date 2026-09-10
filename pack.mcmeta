@@ -1,9 +1,9 @@
 {
     "pack": {
-        "pack_format": 80,
+        "pack_format": 125,
         "description": "Datapack library to manage forceload\nBy Dahesor",
         "min_format": 60,
-        "max_format": 98,
-        "supported_formats": [60,98]
+        "max_format": 125,
+        "supported_formats": [60,125]
     }
 }
